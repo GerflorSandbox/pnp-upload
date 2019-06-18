@@ -9,7 +9,7 @@
     "build": "tsc -p .",
     "build:unix": "npm run tslint && rm -rf ./dist && tsc -p .",
     "prebuild:win": "if exist dist rd /s /q dist",
-    "build:win": "npm run tslint && npm run pre-build-win && npm run build",
+    "build:win": "npm run tslint && npm run prebuild:win && npm run build",
     "tslint": "tslint -p .",
     "test": "ts-node ./test/manual/upload.ts",
     "test:ci": "mocha --opts test/mocha.opts --ci || ECHO."
