@@ -6,7 +6,10 @@
   "main": "./dist/index.js",
   "typings": "./dist/index",
   "scripts": {
-    "build": "npm run tslint && rm -rf ./dist && tsc -p .",
+    "build": "tsc -p .",
+    "build-unix": "npm run tslint && rm -rf ./dist && tsc -p .",
+    "pre-build-win": "if exist dist rd /s /q dist",
+    "build-win": "npm run tslint && npm run pre-build-win && npm run build",
     "tslint": "tslint -p .",
     "test": "ts-node ./test/manual/upload.ts",
     "test:ci": "mocha --opts test/mocha.opts --ci || ECHO."
